@@ -1,0 +1,6 @@
+fastapi # ==0.105
+uvicorn # ==0.22.0
+aiogram # ==3.2.0
+tortoise-orm # ==0.21.1
+asyncpg # ==0.27.0
+python-dotenv # ==1.0.0

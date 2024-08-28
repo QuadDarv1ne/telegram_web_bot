@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: dbname
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+  
+  backend:
+    build: ./backend
+    environment:
+      - TELEGRAM_API_TOKEN=${TELEGRAM_API_TOKEN}
+      - DATABASE_URL=postgres://user:password@db:5432/dbname
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
